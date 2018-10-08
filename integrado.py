@@ -17,7 +17,7 @@ def norm(u):
 def fi(epsilon, xi, u):
 	return (epsilon*(sin(u)-u*cos(u))+xi)/(1-epsilon*cos(u))
 
-#Function that implements the N-R method for u's calculus
+#Function that implements the N-R method for u calculations
 def NR (epsilon, xi):
 	u_ant = pi
 	u_act = fi(epsilon, xi, u_ant)
@@ -36,7 +36,7 @@ class Planet:
 		self.epsilon = epsilon
 		self.p = p
 		self.sqrtmu = 2*pi*pow(self.a, 1.5)/self.p #The sqrt of the mu parameter
-		self.t0 = t0 #days from 1/1/1900 until first step at perihelion
+		self.t0 = t0 #Days from 1/1/1900 until first step at perihelion
 		self.static_ball = static_ball
 		self.orbit_drawer = orbit_drawer
 		self.label = label
@@ -112,7 +112,7 @@ class Planet:
 		self.label.visible = False
 		self.orbit_drawer.trail_object.visible = False
 
-	#Function that prints several planet's data for a given time
+	#Function that prints several planets' data for a given time
 	def printData (self, time, u):
 		print(self.name)
 		print("a = ", self.a, " b = ", self.b)
@@ -196,7 +196,7 @@ tk.Button(master, text='Play/Pause', command = playPause).grid(row=12, sticky=tk
 tk.Button(master, text='Quit', command = quit).grid(row=13, sticky=tk.W, pady=4)
 
 
-#Newton-Raphson precision
+#Newton-Raphson accuracy
 prec = 0.0001
 
 #Global variables for animation
@@ -208,7 +208,7 @@ first_time = True
 scene = display(title='Sistema Solar', x=0, y=0, width=10000, height=10000)
 Sun = sphere(pos=(0,0,0), radius=0.03500, color=color.yellow)
 
-#Create planet balls:
+#Create planets' balls:
 Mercury_static_ball = sphere(radius=0.015,material=materials.wood, visible = False)
 Venus_static_ball = sphere(radius=0.015,material=materials.rough, color=color.yellow, visible = False)
 Earth_static_ball = sphere(radius=0.0190, material=materials.earth, visible = False)
@@ -228,7 +228,7 @@ Saturn_orbit_drawer = sphere(radius=0.01, material=materials.marble,color=color.
 Uranus_orbit_drawer = sphere(radius=0.01, material=materials.glass,color=color.green, make_trail =true, visible = False)
 Neptune_orbit_drawer = sphere(radius=0.01,material=materials.glass, color=color.blue, make_trail =true, visible = False)
 
-#Create planet's labels:
+#Create planets' labels:
 
 Neptune_label = label(text = "Neptuno", color= color.white, visible = False)
 Uranus_label = label(text = "Urano", color= color.white, visible = False)
